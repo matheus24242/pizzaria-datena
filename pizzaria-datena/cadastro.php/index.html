@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Inicio</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Externo -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body onload="chamar_cad(), chamar_login()">
+    <div class="main">
+        <div class="esquerda" id="esquerda">
+            <div class="tela_login">
+                <div class="login">
+                    <h1>Já possue uma conta? Faça login e aproveite nossas ofertas!</h1>
+                    <div class="linha"></div>
+                    <div class="campos">
+                        <input type="email" placeholder="Digite o Email">
+                        <input type="password" placeholder="Senha">
+                    </div>
+                    <div class="bt_login bt1">
+                        <h3>Login</h3>
+                    </div>
+                    <div class="bt_login bt1" id="cad">
+                        <h3>Cadastrar-se</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="img_direita" id="img_direita"></div>
+        <div class="direita" id="direita">
+            <div class="tela_cadastro">
+                <div class="cadastro">
+                    <h1>Cadastre-se e faça seu pedido na melhor pizzaria do Brasil</h1>
+                    <div class="linha linha_cad"></div>
+                    <form method="POST" action="cadastro.php" id="cadForm">
+                        <div class="campos_cadastro">
+                            <input type="email" name="email" placeholder="Digite o Email">
+                            <input type="password" name="senha" placeholder="Senha">
+                        </div>
+
+                        <div class="bt_cadastrar" id="cadBtn">
+                            <h3>Cadastrar-se</h3>
+                        </div>
+                    </form>
+                    <div class="bt_login_cad" id="login">
+                        <h3>Ou realize um login</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="img_esquerda" id="img_esquerda"></div>
+    </div>
+
+   
+  
+    <script src='js/main.js'></script>
+
+    
+    <script>
+
+        $(document).ready(function() {
+            $(".bt_login").click(function() {
+                var email = $('input[type=email]').val();
+                var senha = $('input[type=password]').val();
+                console.log("Email: " + email + ", Senha: " + senha);
+            });
+
+            $(".bt_cadastrar").click(function() {
+                var email = $('input[name=email]').val();
+                var senha = $('input[name=senha]').val();
+                console.log("Email: " + email + ", Senha: " + senha);
+            });
+        });
+    </script>
+
+    <!-- Script para o botão de cadastro -->
+    <script> 
+        document.getElementById('cadBtn').addEventListener('click', function() {
+            // Aqui você pode adicionar a lógica para validar e enviar os dados do formulário.
+            // Por exemplo:
+            var form = document.getElementById('cadForm');
+            if (form.checkValidity()) {
+                form.submit();
+                alert('Cadastro realizado com sucesso!');
+                // Redireciona para a página principal após o cadastro
+                window.location.href = 'index.php';
+            } else {
+                alert('Por favor, preencha todos os campos necessários.');
+            }
+        });
+    </script>
+
+</body>
+</html> 
+
+
